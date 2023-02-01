@@ -1,0 +1,16 @@
+version : "3.3"
+
+services :
+  mynginx :
+    image : mynginx:1.0
+    build : ./mynginx
+    ports :
+      - 8080:80
+
+  microservice :
+    image : microservice-demo:1.0
+    build : ./microservice
+    ports : 
+      - 9000:9000
+
+      

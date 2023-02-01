@@ -1,0 +1,32 @@
+version : "3.3"
+
+services :
+  mynginx :
+    image : mynginx:1.0
+    build : ./mynginx
+    ports :
+      - 8080:80
+    volumes :
+      - ./mountfolder:/oracle-mnt
+      - bootdata:/inside-folder1
+    networks : 
+      - oracle_nw
+
+  microservice :
+    image : microservice-demo:1.0
+    build : ./microservice
+    ports : 
+      - 9000:9000
+    volumes :
+      - bootdata:/inside-folder2
+    networks : 
+      - oracle_nw
+
+
+networks :
+  oracle_nw :
+
+volumes :
+  bootdata :
+
+      
