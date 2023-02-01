@@ -1,0 +1,16 @@
+FROM ubuntu
+
+LABEL MAINTAINER Dr.Rao
+
+RUN apt-get update
+
+RUN apt-get install -y nginx
+
+ADD https://raw.githubusercontent.com/vishymails/DOCKERS-RAW/master/index.html /var/www/html/
+
+RUN chmod 755 /var/www/html/index.html
+
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
+
+EXPOSE 80
+

@@ -1,0 +1,15 @@
+FROM alpine
+
+COPY filecopytest.txt copiedfile/filecopy.txt
+
+COPY multiple* copiedfile/files/
+
+COPY ./folder1/ copiedfolder/
+
+WORKDIR copiedfile
+
+COPY direct_to_workdir.txt after_workdir/
+
+WORKDIR /
+
+CMD ["sh"] 
